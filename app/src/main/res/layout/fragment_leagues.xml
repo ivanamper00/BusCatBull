@@ -1,0 +1,46 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.motkal.putbowl.controller.activity.fragments.LeaguesFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/search_leagues"
+            android:textColorHint="@color/Orange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint = "@color/Orange"
+            android:hint="Search"
+            />
+
+
+            <ImageView
+                android:id="@+id/close_search"
+                android:src="@drawable/close"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="10dp"/>
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/leagues_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

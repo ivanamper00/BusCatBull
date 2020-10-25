@@ -1,0 +1,68 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.motkal.putbowl.controller.activity.fragments.MatchesFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+<LinearLayout
+    android:nestedScrollingEnabled="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/Orange">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Game Highlights"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:padding="10dp"/>
+    </androidx.cardview.widget.CardView>
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/highlights_recycler"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content" />-->
+    <com.github.islamkhsh.CardSliderViewPager
+        android:layout_width="match_parent"
+        android:layout_height="370dp"
+        android:id="@+id/highlights_card_slider"
+        app:cardSlider_smallScaleFactor="0.9"
+        app:cardSlider_otherPagesWidth="32dp"
+        app:cardSlider_pageMargin="8dp"
+        />
+
+    <include layout="@layout/no_data"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/upcoming"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/Orange">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upcoming Events"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:padding="10dp"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:nestedScrollingEnabled="false"
+        android:id="@+id/upcoming_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
+</androidx.core.widget.NestedScrollView>
+</FrameLayout>
