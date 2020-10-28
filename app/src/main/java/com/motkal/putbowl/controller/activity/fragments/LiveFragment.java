@@ -18,8 +18,6 @@ import com.motkal.putbowl.R;
 import com.motkal.putbowl.adapter.LiveGamesAdapter;
 import com.motkal.putbowl.controller.DataController;
 import com.motkal.putbowl.database.LiveScoreApi;
-import com.motkal.putbowl.database.MainApi;
-import com.motkal.putbowl.model.LeagueModel;
 import com.motkal.putbowl.model.LiveScoreModel;
 
 import java.util.List;
@@ -114,7 +112,7 @@ public class LiveFragment extends Fragment {
             }
             @Override
             public void onFailure(Call<List<LiveScoreModel>> call, Throwable t) {
-                Toast.makeText(getContext(),String.valueOf(t.getMessage()), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
