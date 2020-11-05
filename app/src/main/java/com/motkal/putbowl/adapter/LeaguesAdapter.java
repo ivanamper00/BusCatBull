@@ -1,6 +1,7 @@
 package com.motkal.putbowl.adapter;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 
@@ -36,13 +38,7 @@ public class LeaguesAdapter extends RecyclerView.Adapter<LeaguesAdapter.LeagueVi
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    dataController.startLoading();
-                    dataController.clearContents();
-                    dataController.setDefaultLeague(leagueId.getText().toString());
-                    dataController.saveAllQueries();
-                    dataController.loop();
-
-
+                    changeSeries(leagueId.getText().toString());
                 }
             });
         }
@@ -76,6 +72,29 @@ public class LeaguesAdapter extends RecyclerView.Adapter<LeaguesAdapter.LeagueVi
     public void updateList(ArrayList<LeagueModel.League> leagues){
         LeagueList = leagues;
         notifyDataSetChanged();
+    }
+
+    public void changeSeries(final String id){
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this.context);
+        alertDialog.setCancelable(false);
+        alertDialog.setMessage("Do you want to change the series ?");
+        alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dataController.startLoading();
+                dataController.setDefaultLeague(id);
+                dataController.saveAllQueries();
+                dataController.loop();
+            }
+        });
+        alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog alert = alertDialog.create();
+        alert.show();
     }
 
 }
